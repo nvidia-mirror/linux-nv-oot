@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0-only */
 /*
- * Copyright (c) 2022-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+ * Copyright (c) 2022-2024, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
  */
 
 #include <nvidia/conftest.h>
@@ -393,8 +393,13 @@ static void tegra_hv_cleanup(struct tegra_hv_data *hvd)
 	}
 }
 
+#if defined(NV_CLASS_ATTRIBUTE_STRUCT_HAS_CONST_STRUCT_CLASS_ARG)
+static ssize_t vmid_show(const struct class *class,
+	const struct class_attribute *attr, char *buf)
+#else
 static ssize_t vmid_show(struct class *class,
 	struct class_attribute *attr, char *buf)
+#endif
 {
 	struct tegra_hv_data *hvd = get_hvd();
 
