@@ -182,6 +182,7 @@ NV_HEADER_PRESENCE_TESTS = \
   drm/dp/drm_dp_aux_bus.h \
   drm/dp/drm_dp_helper.h \
   drm/drm_dp_aux_bus.h \
+  drm/drm_eld.h \
   generated/autoconf.h \
   linux/kconfig.h \
   linux/iosys-map.h \
