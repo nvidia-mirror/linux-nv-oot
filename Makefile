@@ -24,9 +24,6 @@ endif
 
 # Changes done in Linux 6.6 onwards
 ifeq ($(shell test $(LINUX_VERSION) -ge $(LINUX_VERSION_6_6); echo $$?),0)
-# Rename async_nf_init and v4l2_async_subdev_nf_register
-subdir-ccflags-y += -DNV_V4L2_ASYNC_NF_SUBDEVICE_INIT_RENAME
-
 # Crypto driver has major change in it ops, skip it
 export CONFIG_SKIP_CRYPTO=y
 endif
