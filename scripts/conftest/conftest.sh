@@ -7152,6 +7152,41 @@ compile_test() {
             compile_check_conftest "$CODE" "NV_SND_SOC_OF_GET_DAI_NAME_HAS_INDEX_ARG" "" "types"
         ;;
 
+        snd_soc_rtd_to_codec)
+            #
+            # Determine if the snd_soc_rtd_to_codec() present or not
+            #
+            # In Linux v6.7, commit 1d5a2b5dd0a8d2 ("ASoC: soc.h: convert asoc_xxx()
+            # to snd_soc_xxx()") to replace all asoc_xxx() to snd_soc_xxx().
+            #
+            CODE="
+            #include <sound/soc.h>
+            void conftest_snd_soc_rtd_to_codec(void) {
+                snd_soc_rtd_to_codec();
+            }"
+
+            compile_check_conftest "$CODE" "NV_SND_SOC_RTD_TO_CODEC_PRESENT" "" "functions"
+        ;;
+
+        simple_util_dai_init)
+            #
+            # Determine if the simple_util_dai_init() is present. This will help on finding
+            # if asoc_simple_xxx() renamed to simple_util_xxx()
+            #
+            # In Linux v6.7, commit b5a95c5bf6d69 ("ASoC: simple_card_utils.h: convert
+            # not to use asoc_xxx()") add new APIs to convert asoc_simple_xxx() to
+            # simple_util_xxx().
+            #
+            CODE="
+            #include <sound/soc.h>
+            #include <sound/simple_card_utils.h>
+            void conftest_simple_util_dai_init(void) {
+                simple_util_dai_init();
+            }"
+
+            compile_check_conftest "$CODE" "NV_ASOC_SIMPLE_RENAMED_SIMPLE" "" "functions"
+        ;;
+
         tc_taprio_qopt_offload_struct_has_cmd)
             #
             # Determine if struct tc_taprio_qopt_offload has a member named cmd
