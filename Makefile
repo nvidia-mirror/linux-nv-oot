@@ -53,12 +53,6 @@ subdir-ccflags-y += -DNV_V4L2_ASYNC_NF_SUBDEVICE_INIT_RENAME
 export CONFIG_SKIP_CRYPTO=y
 endif
 
-# Changes done in Linux 6.7 onwards
-ifeq ($(shell test $(LINUX_VERSION) -ge $(LINUX_VERSION_6_7); echo $$?),0)
-# Support enable to allocate shrinker dynamically
-subdir-ccflags-y += -DNV_NVMAP_DYNAMIC_SHRINKER_ALLOC_SUPPORT
-endif
-
 ifeq ($(CONFIG_TEGRA_VIRTUALIZATION),y)
 subdir-ccflags-y += -DCONFIG_TEGRA_VIRTUALIZATION
 endif
