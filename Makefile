@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: GPL-2.0
-# Copyright (c) 2022-2023, NVIDIA CORPORATION.  All rights reserved.
+# Copyright (c) 2022-2024, NVIDIA CORPORATION.  All rights reserved.
 
 LINUXINCLUDE += -I$(srctree.nvconftest)
 LINUXINCLUDE += -I$(srctree.nvidia-oot)/include
@@ -24,10 +24,6 @@ endif
 
 # Changes done in Linux 6.6 onwards
 ifeq ($(shell test $(LINUX_VERSION) -ge $(LINUX_VERSION_6_6); echo $$?),0)
-# Move probe to DAI Ops.
-export CONFIG_SND_SOC_MOVE_DAI_PROBE_TO_OPS=y
-subdir-ccflags-y += -DNV_SND_SOC_DAI_OPS_STRUCT_HAS_PROBE_ARG
-
 # probe_new is removed from i2c driver structure
 subdir-ccflags-y += -DNV_I2C_LEGACY_PROBE_NEW_REMOVED
 
