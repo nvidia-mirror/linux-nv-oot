@@ -124,6 +124,7 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += mii_bus_struct_has_write_c45
 NV_CONFTEST_FUNCTION_COMPILE_TESTS += netif_set_tso_max_size
 NV_CONFTEST_FUNCTION_COMPILE_TESTS += netif_napi_add_weight
 NV_CONFTEST_FUNCTION_COMPILE_TESTS += pde_data
+NV_CONFTEST_FUNCTION_COMPILE_TESTS += pwm_ops_struct_has_owner
 NV_CONFTEST_FUNCTION_COMPILE_TESTS += pci_disable_pcie_error_reporting
 NV_CONFTEST_FUNCTION_COMPILE_TESTS += pci_enable_pcie_error_reporting
 NV_CONFTEST_FUNCTION_COMPILE_TESTS += pci_epf_driver_struct_probe_has_id_arg
