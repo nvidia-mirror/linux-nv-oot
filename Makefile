@@ -27,9 +27,6 @@ ifeq ($(shell test $(LINUX_VERSION) -ge $(LINUX_VERSION_6_6); echo $$?),0)
 # probe_new is removed from i2c driver structure
 subdir-ccflags-y += -DNV_I2C_LEGACY_PROBE_NEW_REMOVED
 
-# API changes to replace u8 with unsigned char
-subdir-ccflags-y += -DNV_TTY_SERIAL_TYPE_U8_CHANGE
-
 # v4l2_async_subdev is renamed to v4l2_async_connection.
 subdir-ccflags-y += -DNV_V4L2_ASYNC_SUBDEV_RENAME
 
