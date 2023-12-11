@@ -2,7 +2,7 @@
 /*
  * PCIe EDMA Library Framework
  *
- * Copyright (C) 2021-2023 NVIDIA Corporation. All rights reserved.
+ * Copyright (C) 2021-2024 NVIDIA Corporation. All rights reserved.
  */
 
 #include <linux/module.h>
@@ -11,6 +11,7 @@
 #include <linux/io.h>
 #include <linux/iopoll.h>
 #include <linux/of_platform.h>
+#include <linux/platform_device.h>
 #include <linux/slab.h>
 #include <linux/interrupt.h>
 #include <linux/tegra-pcie-edma.h>

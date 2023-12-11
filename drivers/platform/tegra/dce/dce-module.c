@@ -1,16 +1,13 @@
+// SPDX-FileCopyrightText: Copyright (c) 2019-2024 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
 // SPDX-License-Identifier: GPL-2.0-only
-/*
- * Copyright (c) 2019-2023, NVIDIA CORPORATION & AFFILIATES.  All rights reserved.
- */
 
 #include <dce.h>
-#include <linux/of.h>
 #include <linux/module.h>
-#include <linux/of_irq.h>
 #include <linux/interrupt.h>
 #include <linux/of_device.h>
 #include <linux/of_address.h>
 #include <linux/of_platform.h>
+#include <linux/platform_device.h>
 #include <linux/device.h>
 
 /**
