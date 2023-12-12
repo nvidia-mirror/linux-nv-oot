@@ -1,11 +1,9 @@
 # SPDX-License-Identifier: GPL-2.0-only
-# Copyright (c) 2022-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+# Copyright (c) 2022-2024, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
 
 ccflags-y += -Wframe-larger-than=2048
 
-ifneq ($(CONFIG_TEGRA_IVC_LEGACY_DISABLE),y)
 obj-m += capture-ivc.o
-endif
 obj-m += ivc-bus.o
 obj-m += camchar.o
 obj-m += camera-diagnostics.o
