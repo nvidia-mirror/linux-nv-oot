@@ -9,7 +9,6 @@ subdir-ccflags-y += -Wmissing-prototypes
 
 LINUX_VERSION := $(shell expr $(VERSION) \* 256 + $(PATCHLEVEL))
 LINUX_VERSION_6_2 := $(shell expr 6 \* 256 + 2)
-LINUX_VERSION_6_3 := $(shell expr 6 \* 256 + 3)
 LINUX_VERSION_6_6 := $(shell expr 6 \* 256 + 6)
 LINUX_VERSION_6_7 := $(shell expr 6 \* 256 + 7)
 
@@ -21,11 +20,6 @@ endif
 
 ifeq ($(CONFIG_TEGRA_IVC_LEGACY_DISABLE),y)
 subdir-ccflags-y += -DCONFIG_TEGRA_IVC_LEGACY_DISABLE
-endif
-
-# Legacy GPIO support is removed in Linux v6.3
-ifeq ($(shell test $(LINUX_VERSION) -ge $(LINUX_VERSION_6_3); echo $$?),0)
-export CONFIG_TEGRA_GPIO_LEGACY_DISABLE=y
 endif
 
 # Changes done in Linux 6.6 onwards
