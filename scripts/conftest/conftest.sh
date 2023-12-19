@@ -7526,6 +7526,22 @@ compile_test() {
             compile_check_conftest "$CODE" "NV_V4L2_ASYNC_SUBDEV_NF_INIT_PRESENT" "" "functions"
         ;;
 
+        v4l2_async_notifier_init)
+            #
+            # Determine if the function v4l2_async_notifier_init() present or not.
+            #
+            # The API is renamed with  commit 3c8c15391481 ("media: v4l: async:
+            # Rename async nf functions, clean up long lines") in Linux 5.16
+            #
+            CODE="
+            #include <media/v4l2-async.h>
+            void conftest_v4l2_async_notifier_init(void) {
+                v4l2_async_notifier_init();
+            }"
+
+            compile_check_conftest "$CODE" "NV_V4L2_ASYNC_NOTIFIER_INIT_PRESENT" "" "functions"
+        ;;
+
         # When adding a new conftest entry, please use the correct format for
         # specifying the relevant upstream Linux kernel commit.
         #
