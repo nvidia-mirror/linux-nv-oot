@@ -148,6 +148,7 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += snd_soc_rtd_to_codec
 NV_CONFTEST_FUNCTION_COMPILE_TESTS += simple_util_dai_init
 NV_CONFTEST_FUNCTION_COMPILE_TESTS += spi_get_chipselect
 NV_CONFTEST_FUNCTION_COMPILE_TESTS += tc_taprio_qopt_offload_struct_has_cmd
+NV_CONFTEST_FUNCTION_COMPILE_TESTS += tegra264_chip_id
 NV_CONFTEST_FUNCTION_COMPILE_TESTS += tegra_dev_iommu_get_stream_id
 NV_CONFTEST_FUNCTION_COMPILE_TESTS += tegra_ivc_struct_has_iosys_map
 NV_CONFTEST_FUNCTION_COMPILE_TESTS += tty_operations_struct_write_has_u8_ptr_arg
