@@ -17,6 +17,7 @@
 #include <linux/fs.h>
 #include <linux/interconnect.h>
 #include <linux/module.h>
+#include <linux/nvhost.h>
 #include <linux/of.h>
 #include <linux/of_device.h>
 #include <linux/of_graph.h>
@@ -39,7 +40,6 @@
 #include <uapi/linux/nvhost_vi_ioctl.h>
 
 #include "capture/capture-support.h"
-#include "nvhost.h"
 #include "vi5.h"
 
 /* HW capability, pixels per clock */
