@@ -344,7 +344,7 @@ retry_sensor:
 				return -1;
 			} else {
 				if (0x301a == table[i].addr || 0x3060 == table[i].addr)
-					msleep(100);
+					msleep(20);
 			}
 		} else {
 			retry = 5;
@@ -555,7 +555,7 @@ static int ar0234_power_on(struct camera_common_data *s_data)
 	struct camera_common_power_rail *pw = s_data->power;
 	struct camera_common_pdata *pdata = s_data->pdata;
 	struct device *dev = s_data->dev;
-	struct ar0234 *priv = (struct ar0234 *) s_data->priv;
+
 	if (pdata && pdata->power_on) {
 		err = pdata->power_on(pw);
 		if (err)
@@ -568,8 +568,6 @@ static int ar0234_power_on(struct camera_common_data *s_data)
 		gpio_set_value(pw->reset_gpio, 1);
 	usleep_range(1000, 2000);
 	pw->state = SWITCH_ON;
-	/*i2c address trans for Hawk & Owl*/
-	err = ar0234_hawk_owl_i2ctrans(priv);
 	return err;
 }
 static int ar0234_power_off(struct camera_common_data *s_data)
@@ -1504,6 +1502,14 @@ static int ar0234_probe(struct i2c_client *client,
 		dev_err(&client->dev,"Failed to enable gpio/ to do serializer i2c address trans\n");
 		goto un_register;
 	}
+
+	/* i2c address trans for Hawk & Owl */
+	err = ar0234_hawk_owl_i2ctrans(priv);
+	if (err) {
+		dev_err(&client->dev, "Failed to do i2c address trans\n");
+		goto un_register;
+	}
+
 	err = ar0234_power_on(tc_dev->s_data);
 	if (err) {
 		dev_err(&client->dev,"Failed to power on\n");
